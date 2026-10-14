@@ -1,0 +1,153 @@
+package sh.siava.pixelxpert;
+
+import static sh.siava.pixelxpert.Constants.DEFAULT_PREFS_FILE_NAME;
+import static sh.siava.pixelxpert.Constants.LAUNCH_REASON_XPOSED_SERVICE_FAIL;
+
+import android.annotation.SuppressLint;
+import android.app.Application;
+import android.content.ComponentName;
+import android.content.Context;
+import android.content.Intent;
+import android.content.ServiceConnection;
+import android.os.Handler;
+import android.os.IBinder;
+import android.os.Looper;
+import android.util.Log;
+
+import androidx.annotation.NonNull;
+
+import com.downloader.PRDownloader;
+import com.downloader.PRDownloaderConfig;
+import com.google.android.material.color.DynamicColors;
+import com.topjohnwu.superuser.Shell;
+import com.topjohnwu.superuser.ipc.RootService;
+
+import java.lang.reflect.Field;
+import java.util.List;
+import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.CountDownLatch;
+import java.util.concurrent.TimeUnit;
+
+
+import io.github.libxposed.service.XposedService;
+import io.github.libxposed.service.XposedServiceHelper;
+import sh.siava.pixelxpert.utils.ExtendedSharedPreferences;
+import sh.siava.pixelxpert.utils.PreferenceXMLParser;
+
+
+public class PixelXpert extends Application {
+
+	public static final String TAG = "PixelXpertSingleton";
+	private final Handler mainThreadHandler = new Handler(Looper.getMainLooper());
+
+
+	private static PixelXpert instance;
+	private boolean mCoreRootServiceBound = false;
+	public final CountDownLatch mRootServiceConnected = new CountDownLatch(1);
+
+	private ServiceConnection mCoreRootServiceConnection;
+	private XposedService mXposedService;
+
+	public void onCreate() {
+		super.onCreate();
+		instance = this;
+
+		PRDownloaderConfig config = PRDownloaderConfig.newBuilder()
+				.setReadTimeout(30_000)
+				.setConnectTimeout(30_000)
+				.build();
+		PRDownloader.initialize(getApplicationContext(), config);
+
+		initiatePreferences(false);
+
+		DynamicColors.applyToActivitiesIfAvailable(this);
+
+		tryConnectXposedService(service -> {});
+	}
+
+	private void tryConnectXposedService(XposedServiceCallback callback) {
+		XposedServiceHelper.registerListener(new XposedServiceHelper.OnServiceListener() {
+			@Override
+			public void onServiceBind(@NonNull XposedService service) {
+				mXposedService = service;
+				callback.serviceReady(service);
+			}
+
+			@Override
+			public void onServiceDied(@NonNull XposedService service) {
+				mXposedService = null;
+			}
+		});
+	}
+
+	public ExtendedSharedPreferences getDefaultPreferences()
+	{
+		return ExtendedSharedPreferences.from(this.createDeviceProtectedStorageContext()
+				.getSharedPreferences(DEFAULT_PREFS_FILE_NAME, Context.MODE_PRIVATE));
+	}
+
+	@SuppressLint("ApplySharedPref")
+	public void initiatePreferences(boolean resetAll) {
+		CompletableFuture.runAsync(() -> {
+			try {
+				if(resetAll)
+					getDefaultPreferences().edit().clear().commit();
+
+				setPrefsValidity(false);
+
+				Class<?> xmlClass = getClassLoader().loadClass(R.xml.class.getName());
+				Field[] prefPages = xmlClass.getFields();
+				for (Field prefPage : prefPages)
+				{
+					//noinspection DataFlowIssue
+					initiatePref((int) prefPage.get(null));
+				}
+
+				setPrefsValidity(true);
+			} catch (Throwable ignored) {}
+		});
+	}
+
+	@SuppressLint("ApplySharedPref")
+	public void setPrefsValidity(boolean valid)
+	{
+		getDefaultPreferences().edit().putBoolean(ExtendedSharedPreferences.IS_PREFS_INITIATED_KEY, valid).commit();
+	}
+
+	private void initiatePref(int resID)
+	{
+		try {
+			PreferenceXMLParser.setDefaultsFromXml(this, resID, getDefaultPreferences());
+		}
+		catch (Throwable ignored){}
+	}
+
+	public static PixelXpert get() {
+		if (instance == null) {
+			instance = new PixelXpert();
+		}
+		return instance;
+	}
+
+	public boolean hasRootAccess()
+	{
+		return Shell.getShell().isRoot();
+	}
+
+	public String[] runRootCommand(String command) {
+		try {
+			List<String> result = Shell.cmd(command).exec().getOut();
+			return result.toArray(new String[0]);
+		}
+		catch (Throwable t)
+		{
+			return new String[0];
+		}
+	}
+
+
+	public interface XposedServiceCallback
+	{
+		void serviceReady(XposedService service);
+	}
+}

@@ -1,0 +1,362 @@
+<resources>
+
+    <string-array name="qs_pulldown_side_names">
+		<item>@string/pull_down_left</item>
+		<item>@string/pull_down_right</item>
+	</string-array>
+
+	<string-array name="qs_pulldown_side_left">
+		<item>2</item>
+		<item>1</item>
+	</string-array>
+
+	<string-array name="languages_names">
+		<item>Arabic</item>
+		<item>Chinese (China)</item>
+		<item>Chinese (Taiwan)</item>
+		<item>Dutch</item>
+		<item>English</item>
+		<item>French</item>
+		<item>German</item>
+		<item>Hindi</item>
+		<item>Hungarian</item>
+		<item>Italian</item>
+		<item>Japanese</item>
+		<item>Korean</item>
+		<item>Persian</item>
+		<item>Polish</item>
+		<item>Portuguese</item>
+		<item>Romanian</item>
+		<item>Russian</item>
+		<item>Spanish</item>
+		<item>Turkish</item>
+		<item>Ukrainian</item>
+		<item>Vietnamese</item>
+	</string-array>
+
+	<string-array name="languages_values">
+		<item>ar</item>
+		<item>zh-CN</item>
+		<item>zh-TW</item>
+		<item>nl</item>
+		<item>en</item>
+		<item>fr</item>
+		<item>de</item>
+		<item>hi</item>
+		<item>hu</item>
+		<item>it</item>
+		<item>ja</item>
+		<item>ko</item>
+		<item>fa</item>
+		<item>pl</item>
+		<item>pt-PT</item>
+		<item>ro</item>
+		<item>ru</item>
+		<item>es</item>
+		<item>tr</item>
+		<item>uk</item>
+		<item>vi</item>
+	</string-array>
+
+	<string-array name="three_button_nav_buttons">
+		<item>back</item>
+		<item>home</item>
+		<item>recent</item>
+	</string-array>
+
+	<string-array name="custom_action_titles">
+		<item>@string/none</item>
+		<item>@string/screenshot</item>
+		<!--item>@string/insecure_screenshot</item-->
+		<!--item>@string/back</item-->
+		<item>@string/kill_foreground_app</item>
+		<item>@string/toggle_notification</item>
+		<item>@string/toggle_one_handed</item>
+		<item>@string/sleep</item>
+		<item>@string/app_switch_tile_title</item>
+	</string-array>
+
+	<string-array name="custom_action_codes">
+		<item>-1</item>
+		<item>1</item>
+		<!--item>6</item-->
+		<!--item>2</item-->
+		<item>3</item>
+		<item>4</item>
+		<item>5</item>
+		<item>7</item>
+		<item>8</item>
+	</string-array>
+
+    <string-array name="sbc_position_names">
+		<item>@string/clock_default</item>
+		<item>@string/clock_center</item>
+		<item>@string/clock_right</item>
+	</string-array>
+
+	<string-array name="sbc_position_codes">
+		<item>0</item>
+		<item>1</item>
+		<item>2</item>
+	</string-array>
+
+	<string-array name="sbc_ampm_style_names">
+		<item>@string/am_pm_default</item>
+		<item>@string/am_pm_normal</item>
+		<item>@string/am_pm_small</item>
+	</string-array>
+
+	<string-array name="sbc_ampm_style_codes">
+		<item>2</item>
+		<item>0</item>
+		<item>1</item>
+	</string-array>
+
+
+	<string-array name="sbc_day_week_names">
+		<item>@string/date_default</item>
+		<item>@string/date_before</item>
+		<item>@string/date_before_small</item>
+		<item>@string/date_after</item>
+		<item>@string/date_after_small</item>
+	</string-array>
+
+	<string-array name="sbc_day_week_codes">
+		<item>0</item>
+		<item>1</item>
+		<item>2</item>
+		<item>3</item>
+		<item>4</item>
+	</string-array>
+
+	<string-array name="lte4g_icon_names">
+		<item>@string/fourg_lte_default</item>
+		<item>@string/fourg_lte_lte</item>
+		<item>@string/fourg_lte_fourg</item>
+	</string-array>
+
+	<string-array name="lte4g_icon_codes">
+		<item>0</item>
+		<item>1</item>
+		<item>2</item>
+	</string-array>
+
+	<string-array name="sb_icon_sort_names">
+		<item>@string/sort_clean</item>
+		<item>@string/sort_tight</item>
+	</string-array>
+
+	<string-array name="sb_icon_sort_codes">
+		<item>0</item>
+		<item>1</item>
+	</string-array>
+
+	<string-array name="network_sb_locations">
+		<item>@string/ntsb_far_left</item>
+		<item>@string/ntsb_mid_left</item>
+		<item>@string/ntsb_mid_right</item>
+	</string-array>
+
+	<string-array name="network_stat_start_names">
+		<item>@string/nt_stat_mode_today</item>
+		<item>@string/nt_stat_mode_week</item>
+		<item>@string/nt_stat_mode_month</item>
+	</string-array>
+
+	<string-array name="network_stat_start_codes">
+		<item>0</item>
+		<item>1</item>
+		<item>2</item>
+	</string-array>
+
+	<string-array name="days_of_week_names">
+		<item>@string/sunday</item>
+		<item>@string/monday</item>
+		<item>@string/tuesday</item>
+		<item>@string/wednesday</item>
+		<item>@string/thursday</item>
+		<item>@string/friday</item>
+		<item>@string/saturday</item>
+	</string-array>
+
+	<string-array name="days_of_week_codes">
+		<item>1</item>
+		<item>2</item>
+		<item>3</item>
+		<item>4</item>
+		<item>5</item>
+		<item>6</item>
+		<item>7</item>
+	</string-array>
+
+	<string-array name="network_mode_names">
+		<item>@string/nt_mode_rxtx</item>
+		<item>@string/nt_mode_total</item>
+		<item>@string/nt_mode_rxonly</item>
+		<item>@string/nt_mode_txonly</item>
+	</string-array>
+
+	<string-array name="network_mode_codes">
+		<item>0</item>
+		<item>3</item>
+		<item>1</item>
+		<item>2</item>
+	</string-array>
+
+	<string-array name="taskbar_option_names">
+		<item>@string/overlay_none_title</item>
+		<item>@string/taskbar_force_enable_title</item>
+		<item>@string/taskbar_force_disable_title</item>
+	</string-array>
+
+	<string-array name="taskbar_option_value">
+		<item>0</item>
+		<item>1</item>
+		<item>2</item>
+	</string-array>
+
+	<string-array name="physical_remap_action_names">
+		<item>@string/none</item>
+		<item>@string/word_default</item>
+		<item>@string/torch</item>
+		<item>@string/camera</item>
+		<item>@string/assistant</item>
+		<!--item>@string/do_not_disturb</item-->
+		<item>@string/pause_media</item>
+		<item>@string/skip_media_next</item>
+		<item>@string/skip_media_prev</item>
+	</string-array>
+
+	<string-array name="physical_remap_action_values">
+		<item>-1</item>
+		<item>0</item>
+		<item>1</item>
+		<item>2</item>
+		<item>3</item>
+		<!--item>4</item-->
+		<item>5</item>
+		<item>6</item>
+		<item>7</item>
+		<item>8</item>
+	</string-array>
+
+	<string-array name="notif_default_expansion_entries">
+		<item>@string/word_default</item>
+		<item>@string/notif_always_expand</item>
+		<item>@string/notif_always_collapse</item>
+	</string-array>
+
+	<string-array name="notif_default_expansion_values">
+		<item>0</item>
+		<item>1</item>
+		<item>2</item>
+	</string-array>
+
+	<string-array name="segmentor_ai_model_names">
+		<item>ML Kit</item>
+		<item>Pytorch</item>
+	</string-array>
+
+	<string-array name="segmentor_ai_model_codes">
+		<item>0</item>
+		<item>1</item>
+	</string-array>
+
+	<string-array name="iconpack_preview_icons">
+		<item>ic_signal_cellular_3_4_bar</item>
+		<item>ic_wifi_signal_3</item>
+		<item>ic_audio_ring_notif</item>
+		<item>stat_sys_airplane_mode</item>
+		<item>ic_alarm</item>
+		<item>ic_hotspot</item>
+		<item>qs_bluetooth</item>
+		<item>location</item>
+	</string-array>
+	
+	<string-array name="ignored_icons_values">
+		<item>volte</item>
+		<item>vowifi</item>
+		<item>no_calling</item>
+		<item>call_strength</item>
+		<item>alarm_clock</item>
+		<item>rotate</item>
+		<item>headset</item>
+		<item>data_saver</item>
+		<item>ime</item>
+		<item>sync_failing</item>
+		<item>sync_active</item>
+		<item>nfc</item>
+		<item>tty</item>
+		<item>speakerphone</item>
+		<item>cdma_eri</item>
+		<item>data_connection</item>
+		<item>phone_evdo_signal</item>
+		<item>phone_signal</item>
+		<item>secure</item>
+		<item>managed_profile</item>
+		<item>connected_display</item>
+		<item>vpn</item>
+		<item>bluetooth</item>
+		<item>camera</item>
+		<item>microphone</item>
+		<item>location</item>
+		<item>mute</item>
+		<item>volume</item>
+		<item>zen</item>
+		<item>screen_record</item>
+		<item>cast</item>
+		<item>ethernet</item>
+		<item>satellite</item>
+		<item>wifi</item>
+		<item>hotspot</item>
+		<item>mobile</item>
+		<item>airplane</item>
+		<item>battery</item>
+		<item>sensors_off</item>
+		<!--item>clock</item-->
+	</string-array>
+	
+	<string-array name="ignored_icons_entries">
+		<item>@string/status_bar_volte</item>
+		<item>@string/status_bar_vowifi</item>
+		<item>@string/status_bar_no_calling</item>
+		<item>@string/status_bar_call_strength</item>
+		<item>@string/status_bar_alarm_clock</item>
+		<item>@string/status_bar_rotate</item>
+		<item>@string/status_bar_headset</item>
+		<item>@string/status_bar_data_saver</item>
+		<item>@string/status_bar_ime</item>
+		<item>@string/status_bar_sync_failing</item>
+		<item>@string/status_bar_sync_active</item>
+		<item>@string/status_bar_nfc</item>
+		<item>@string/status_bar_tty</item>
+		<item>@string/status_bar_speakerphone</item>
+		<item>@string/status_bar_cdma_eri</item>
+		<item>@string/status_bar_data_connection</item>
+		<item>@string/status_bar_phone_evdo_signal</item>
+		<item>@string/status_bar_phone_signal</item>
+		<item>@string/status_bar_secure</item>
+		<item>@string/status_bar_managed_profile</item>
+		<item>@string/status_bar_connected_display</item>
+		<item>@string/status_bar_vpn</item>
+		<item>@string/status_bar_bluetooth</item>
+		<item>@string/status_bar_camera</item>
+		<item>@string/status_bar_microphone</item>
+		<item>@string/status_bar_location</item>
+		<item>@string/status_bar_mute</item>
+		<item>@string/status_bar_volume</item>
+		<item>@string/status_bar_zen</item>
+		<item>@string/status_bar_screen_record</item>
+		<item>@string/status_bar_cast</item>
+		<item>@string/status_bar_ethernet</item>
+		<item>@string/status_bar_oem_satellite</item>
+		<item>@string/status_bar_wifi</item>
+		<item>@string/status_bar_hotspot</item>
+		<item>@string/status_bar_mobile</item>
+		<item>@string/status_bar_airplane</item>
+		<item>@string/status_bar_battery</item>
+		<item>@string/status_bar_sensors_off</item>
+		<!--item>@string/status_bar_clock</item-->
+	</string-array>
+
+</resources>

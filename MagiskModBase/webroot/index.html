@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PixelXpert Minimal Config</title>
+    <style>
+        body { font-family: sans-serif; background-color: #121212; color: #ffffff; padding: 20px; }
+        .setting-group { margin-bottom: 20px; padding: 15px; background: #1e1e1e; border-radius: 8px; }
+        .setting-title { font-size: 18px; margin-bottom: 5px; }
+        .setting-desc { font-size: 14px; color: #aaaaaa; margin-bottom: 10px; }
+        .switch { position: relative; display: inline-block; width: 50px; height: 28px; }
+        .switch input { opacity: 0; width: 0; height: 0; }
+        .slider { position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0; background-color: #555; transition: .4s; border-radius: 34px; }
+        .slider:before { position: absolute; content: ""; height: 20px; width: 20px; left: 4px; bottom: 4px; background-color: white; transition: .4s; border-radius: 50%; }
+        input:checked + .slider { background-color: #4CAF50; }
+        input:checked + .slider:before { transform: translateX(22px); }
+        .btn { display: inline-block; padding: 10px 20px; background-color: #2196F3; color: white; border: none; border-radius: 5px; cursor: pointer; margin-top: 10px;}
+        .btn:hover { background-color: #0b7dda; }
+        #log { margin-top: 20px; color: #888; font-size: 12px; }
+    </style>
+</head>
+<body>
+
+    <h2>PixelXpert Minimal Config</h2>
+
+    <div class="setting-group">
+        <div class="setting-title">Enable Clear All Button (Recents)</div>
+        <div class="setting-desc">Adds a 'Clear All' button in the recents view. (Requires reboot)</div>
+        <label class="switch">
+            <input type="checkbox" id="pref_clear_all">
+            <span class="slider"></span>
+        </label>
+    </div>
+
+    <div class="setting-group">
+        <div class="setting-title">Disable System Back Gestures</div>
+        <div class="setting-desc">Disables the default edge back gestures. (Applies immediately)</div>
+        <label class="switch">
+            <input type="checkbox" id="pref_back_gesture">
+            <span class="slider"></span>
+        </label>
+    </div>
+
+    <div class="setting-group">
+        <div class="setting-title">Enable File to Clipboard</div>
+        <div class="setting-desc">Shows 'Copy content in clipboard' in Android share sheet. (Applies immediately)</div>
+        <label class="switch">
+            <input type="checkbox" id="pref_clipboard">
+            <span class="slider"></span>
+        </label>
+    </div>
+
+    <div class="setting-group">
+        <div class="setting-title">Enable Kill App Button</div>
+        <div class="setting-desc">Adds a 'Force Stop' option in the recent apps menu. (Requires reboot)</div>
+        <label class="switch">
+            <input type="checkbox" id="pref_kill_app">
+            <span class="slider"></span>
+        </label>
+    </div>
+
+    <div class="setting-group">
+        <div class="setting-title">Enable Hide App Feature</div>
+        <div class="setting-desc">Adds a button to hide tasks from the recent apps view. (Requires reboot)</div>
+        <label class="switch">
+            <input type="checkbox" id="pref_hide_app">
+            <span class="slider"></span>
+        </label>
+    </div>
+
+    <div class="setting-group">
+        <div class="setting-title">Enable Screenshot Anywhere</div>
+        <div class="setting-desc">Allows taking screenshots in apps that normally block it. (Requires reboot)</div>
+        <label class="switch">
+            <input type="checkbox" id="pref_scr_any">
+            <span class="slider"></span>
+        </label>
+    </div>
+
+    <button class="btn" onclick="saveSettings()">Save & Apply</button>
+
+    <div id="log"></div>
+
+    <script>
+        // We use Android system properties to communicate with the Xposed module
+
+        function logMsg(msg) {
+            document.getElementById('log').innerText += msg + "\n";
+        }
+
+        async function getProp(key, defaultVal) {
+            try {
+                const { errno, stdout } = await ksu.exec(`getprop ${key}`);
+                if (errno === 0 && stdout.trim() !== '') {
+                    return stdout.trim() === 'true';
+                }
+            } catch (e) {
+                logMsg("Error getting prop: " + e);
+            }
+            return defaultVal;
+        }
+
+        async function loadSettings() {
+            try {
+                document.getElementById('pref_clear_all').checked = await getProp('persist.sys.pxl.clear_all', true);
+                document.getElementById('pref_back_gesture').checked = await getProp('persist.sys.pxl.back_gest', true);
+                document.getElementById('pref_kill_app').checked = await getProp('persist.sys.pxl.kill_app', true);
+                document.getElementById('pref_hide_app').checked = await getProp('persist.sys.pxl.hide_app', true);
+                document.getElementById('pref_scr_any').checked = await getProp('persist.sys.pxl.scr_any', false);
+
+                // For Clipboard, check UI state via a config file
+                const PREFS_FILE = '/data/adb/modules/PixelXpert-Minimal/webroot/clipboard.conf';
+                const res = await ksu.exec(`cat ${PREFS_FILE}`);
+                if (res.errno === 0 && res.stdout.trim() === 'false') {
+                    document.getElementById('pref_clipboard').checked = false;
+                } else {
+                    document.getElementById('pref_clipboard').checked = true; // default true
+                }
+            } catch (e) {
+                logMsg("Error loading: " + e);
+            }
+        }
+
+        async function saveSettings() {
+            const clearAll = document.getElementById('pref_clear_all').checked;
+            const backGest = document.getElementById('pref_back_gesture').checked;
+            const clipboard = document.getElementById('pref_clipboard').checked;
+            const killApp = document.getElementById('pref_kill_app').checked;
+            const hideApp = document.getElementById('pref_hide_app').checked;
+            const scrAny = document.getElementById('pref_scr_any').checked;
+
+            try {
+                // Save properties (persist so they survive reboots and are readable globally)
+                await ksu.exec(`setprop persist.sys.pxl.clear_all ${clearAll}`);
+                await ksu.exec(`setprop persist.sys.pxl.back_gest ${backGest}`);
+                await ksu.exec(`setprop persist.sys.pxl.kill_app ${killApp}`);
+                await ksu.exec(`setprop persist.sys.pxl.hide_app ${hideApp}`);
+                await ksu.exec(`setprop persist.sys.pxl.scr_any ${scrAny}`);
+
+                // Apply back gesture settings immediately via system command
+                if (backGest) {
+                    await ksu.exec(`settings put secure back_gesture_inset_scale_left 0.0`);
+                    await ksu.exec(`settings put secure back_gesture_inset_scale_right 0.0`);
+                } else {
+                    await ksu.exec(`settings delete secure back_gesture_inset_scale_left`);
+                    await ksu.exec(`settings delete secure back_gesture_inset_scale_right`);
+                }
+
+
+                // Toggle clipboard activity dynamically via pm
+                const PREFS_FILE = '/data/adb/modules/PixelXpert-Minimal/webroot/clipboard.conf';
+                const activity = 'sh.siava.pixelxpert/.ClipboardShareActivity';
+                if (clipboard) {
+                    await ksu.exec(`echo 'true' > ${PREFS_FILE}`);
+                    await ksu.exec(`pm enable ${activity}`);
+                } else {
+                    await ksu.exec(`echo 'false' > ${PREFS_FILE}`);
+                    await ksu.exec(`pm disable ${activity}`);
+                }
+
+                alert("Settings saved! Please reboot your device to apply Xposed changes.");
+            } catch (e) {
+                alert("Error saving settings: " + e);
+            }
+        }
+
+        // Initialize KSU and load settings
+        if (typeof ksu !== 'undefined') {
+            loadSettings();
+        } else {
+            logMsg("KernelSU WebUI environment not detected.");
+        }
+    </script>
+</body>
+</html>

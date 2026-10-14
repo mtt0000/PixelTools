@@ -1,0 +1,66 @@
+name: Bug report
+description: Create a report to help us improve  
+title: "[Bug] "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        **Please note: At the time being, only bug reports from Pixel Stock firmware, or Pixel Experience will be considered. Bug reports from other firmwares will only be taken into account if also reported from one of the supported roms.**  
+  - type: input
+    attributes:
+      label: Describe the issue
+      description: If possible also share screenshots with labels where you see/observe the issue.
+    validations:
+      required: true
+
+  - type: textarea
+    attributes:
+      label: Steps to reproduce
+      placeholder: |
+        1. Go to ...
+        2. Click ...
+        3. Scroll ...
+    validations:
+      required: true
+  - type: input
+    attributes:
+      label: Expected behavior
+      description: A clear and concise description of what you expected to happen instead of what you observed.
+  - type: textarea
+    attributes:
+      label: Your device setup (Please take some time to give correct information here)
+      description: |
+        Please check ReadMe file and read Compatibility part before reporting from an unsupported ROM/firmware!
+        - Your device manufacturer and model name
+        - Android version
+        - Security update date (if it's a custom ROM, then its name and date of release)
+        - Your magisk version
+        - List of apps that have been granted root access (if possible, screenshots)
+        - List of your magisk modules and versions (if possible, screenshots)
+        - Your LSposed version
+        - List of your LSposed modules and versions (if possible, screenshots)
+      placeholder: |
+        - Google Pixel 6 Stock Firmware August Security Patch ...
+        - Android 13 Stable version
+        - August Security Patch 
+        - Magisk v25.1 Stable
+        - PixelXpert 2.1.0, BetterInternetTiles, [SharedUID] SystemUI, [SharedUID] Termux
+        - PixelXpert 2.1.0 and LSposed 1.8.3
+        - LSposed 1.8.3
+        - Only PixelXpert 2.1.0
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: Logs
+      description: |
+        !This part is vital for bugreport! Missing logs will most probably lead in dismissal of the bugreport!
+        Please attach LSposed Module log if you are able to. (Open LSPosed, go to module logs, press save button and attach to this bug report)
+        To give clear logs, before extracting LSposed logs, follow these steps:
+        - Disable all magisk modules other than PixelXpert and LSposed
+        - Disable all LSposed modules other than PixelXpert
+        - Disable all theming apps (e.g. Substratum, Repainter and etc)
+        - Restart and replicate the issue
+        - After that extract LSposed logs.
+    validations:
+      required: false

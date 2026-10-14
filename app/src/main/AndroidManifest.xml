@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:tools="http://schemas.android.com/tools">
+
+	<uses-permission android:name="android.permission.INTERNET" />
+	<uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+	<uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+	<uses-permission
+		android:name="android.permission.QUERY_ALL_PACKAGES"
+		tools:ignore="QueryAllPackagesPermission" />
+
+	<application
+		android:name=".PixelXpert"
+		android:enableOnBackInvokedCallback="true"
+		android:forceQueryable="true"
+		android:icon="@mipmap/ic_launcher"
+		android:label="Pixel Xpert Minimal"
+		android:supportsRtl="true"
+		android:theme="@style/AppTheme.PixelXpert">
+
+		<activity
+			android:name=".ui.activities.SettingsActivity"
+			android:exported="true"
+			android:label="Pixel Xpert Minimal"
+			android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+			<intent-filter>
+				<action android:name="android.intent.action.MAIN" />
+				<category android:name="android.intent.category.LAUNCHER" />
+			</intent-filter>
+		</activity>
+
+		<provider
+			android:name=".utils.RemotePrefProvider"
+			android:authorities="sh.siava.pixelxpert"
+			android:directBootAware="true"
+			android:exported="true"
+			tools:ignore="ExportedContentProvider" />
+
+		<activity
+			android:name=".ClipboardShareActivity"
+			android:exported="true"
+			android:label="Copy content in clipboard"
+			android:theme="@android:style/Theme.NoDisplay"
+			android:excludeFromRecents="true"
+			android:noHistory="true">
+			<intent-filter>
+				<action android:name="android.intent.action.SEND" />
+				<category android:name="android.intent.category.DEFAULT" />
+				<data android:mimeType="*/*" />
+			</intent-filter>
+			<intent-filter>
+				<action android:name="android.intent.action.SEND_MULTIPLE" />
+				<category android:name="android.intent.category.DEFAULT" />
+				<data android:mimeType="*/*" />
+			</intent-filter>
+		</activity>
+    </application>
+
+</manifest>

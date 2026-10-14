@@ -1,0 +1,148 @@
+Calculating task graph as configuration cache cannot be reused because the file system entry '../opt/android-sdk/build-tools/36.0.0/aapt' has been created.
+> Task :buildSrc:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :buildSrc:compileKotlin UP-TO-DATE
+> Task :buildSrc:compileJava NO-SOURCE
+> Task :buildSrc:compileGroovy NO-SOURCE
+> Task :buildSrc:pluginDescriptors UP-TO-DATE
+> Task :buildSrc:processResources NO-SOURCE
+> Task :buildSrc:classes UP-TO-DATE
+> Task :buildSrc:jar UP-TO-DATE
+
+> Configure project :app
+WARNING: The property android.dependency.excludeLibraryComponentsFromConstraints improves project import performance for very large projects. It should be enabled to improve performance.
+To suppress this warning, add android.generateSyncIssueWhenLibraryConstraintsAreEnabled=false to gradle.properties
+WARNING: The property android.dependency.excludeLibraryComponentsFromConstraints improves project import performance for very large projects. It should be enabled to improve performance.
+To suppress this warning, add android.generateSyncIssueWhenLibraryConstraintsAreEnabled=false to gradle.properties
+WARNING: The property android.dependency.excludeLibraryComponentsFromConstraints improves project import performance for very large projects. It should be enabled to improve performance.
+To suppress this warning, add android.generateSyncIssueWhenLibraryConstraintsAreEnabled=false to gradle.properties
+WARNING: The property android.dependency.excludeLibraryComponentsFromConstraints improves project import performance for very large projects. It should be enabled to improve performance.
+To suppress this warning, add android.generateSyncIssueWhenLibraryConstraintsAreEnabled=false to gradle.properties
+
+> Configure project :Submodules:RangeSliderPreference
+WARNING: The property android.dependency.excludeLibraryComponentsFromConstraints improves project import performance for very large projects. It should be enabled to improve performance.
+To suppress this warning, add android.generateSyncIssueWhenLibraryConstraintsAreEnabled=false to gradle.properties
+WARNING: The property android.dependency.excludeLibraryComponentsFromConstraints improves project import performance for very large projects. It should be enabled to improve performance.
+To suppress this warning, add android.generateSyncIssueWhenLibraryConstraintsAreEnabled=false to gradle.properties
+WARNING: The property android.dependency.excludeLibraryComponentsFromConstraints improves project import performance for very large projects. It should be enabled to improve performance.
+To suppress this warning, add android.generateSyncIssueWhenLibraryConstraintsAreEnabled=false to gradle.properties
+WARNING: The property android.dependency.excludeLibraryComponentsFromConstraints improves project import performance for very large projects. It should be enabled to improve performance.
+To suppress this warning, add android.generateSyncIssueWhenLibraryConstraintsAreEnabled=false to gradle.properties
+
+> Task :Submodules:RangeSliderPreference:preBuild UP-TO-DATE
+> Task :app:preBuild
+> Task :annotations:processResources NO-SOURCE
+> Task :Submodules:RangeSliderPreference:preReleaseBuild UP-TO-DATE
+> Task :Submodules:RangeSliderPreference:mergeReleaseJniLibFolders UP-TO-DATE
+> Task :Submodules:RangeSliderPreference:prepareReleaseArtProfile UP-TO-DATE
+> Task :Submodules:RangeSliderPreference:mergeReleaseNativeLibs NO-SOURCE
+> Task :app:preReleaseBuild
+> Task :Submodules:RangeSliderPreference:generateReleaseResources UP-TO-DATE
+> Task :Submodules:RangeSliderPreference:copyReleaseJniLibsProjectOnly UP-TO-DATE
+> Task :annotations:compileJava UP-TO-DATE
+> Task :annotations:classes UP-TO-DATE
+> Task :app:mergeReleaseJniLibFolders UP-TO-DATE
+> Task :annotations:jar UP-TO-DATE
+> Task :Submodules:RangeSliderPreference:processReleaseNavigationResources UP-TO-DATE
+> Task :Submodules:RangeSliderPreference:packageReleaseResources UP-TO-DATE
+> Task :Submodules:RangeSliderPreference:javaPreCompileRelease UP-TO-DATE
+> Task :Submodules:RangeSliderPreference:parseReleaseLocalResources UP-TO-DATE
+> Task :Submodules:RangeSliderPreference:generateReleaseRFile UP-TO-DATE
+> Task :Submodules:RangeSliderPreference:compileReleaseKotlin NO-SOURCE
+> Task :Submodules:RangeSliderPreference:compileReleaseJavaWithJavac UP-TO-DATE
+> Task :Submodules:RangeSliderPreference:mergeReleaseGeneratedProguardFiles UP-TO-DATE
+> Task :app:checkReleaseDuplicateClasses UP-TO-DATE
+> Task :Submodules:RangeSliderPreference:exportReleaseConsumerProguardFiles UP-TO-DATE
+> Task :annotationProcessor:processResources UP-TO-DATE
+> Task :annotationProcessor:compileJava UP-TO-DATE
+> Task :annotationProcessor:classes UP-TO-DATE
+> Task :annotationProcessor:jar UP-TO-DATE
+> Task :app:compileReleaseAidl UP-TO-DATE
+> Task :app:mergeReleaseArtProfile UP-TO-DATE
+> Task :app:dataBindingMergeDependencyArtifactsRelease UP-TO-DATE
+> Task :app:generateReleaseBuildConfig UP-TO-DATE
+> Task :app:mergeReleaseNativeLibs UP-TO-DATE
+> Task :app:generateReleaseResources UP-TO-DATE
+> Task :app:stripReleaseDebugSymbols UP-TO-DATE
+> Task :app:expandReleaseL8ArtProfileWildcards UP-TO-DATE
+> Task :app:extractReleaseNativeSymbolTables UP-TO-DATE
+> Task :app:mergeReleaseNativeDebugMetadata NO-SOURCE
+> Task :app:packageReleaseResources UP-TO-DATE
+> Task :Submodules:RangeSliderPreference:bundleLibCompileToJarRelease UP-TO-DATE
+> Task :Submodules:RangeSliderPreference:bundleLibRuntimeToJarRelease UP-TO-DATE
+> Task :app:javaPreCompileRelease UP-TO-DATE
+> Task :app:mapReleaseSourceSetPaths UP-TO-DATE
+> Task :Submodules:RangeSliderPreference:writeReleaseAarMetadata UP-TO-DATE
+> Task :app:createReleaseCompatibleScreenManifests UP-TO-DATE
+> Task :app:extractDeepLinksRelease UP-TO-DATE
+> Task :app:processReleaseNavigationResources UP-TO-DATE
+> Task :app:mergeReleaseResources UP-TO-DATE
+> Task :app:parseReleaseLocalResources UP-TO-DATE
+> Task :app:checkReleaseAarMetadata UP-TO-DATE
+> Task :app:compileReleaseNavigationResources UP-TO-DATE
+> Task :Submodules:RangeSliderPreference:extractDeepLinksRelease UP-TO-DATE
+> Task :Submodules:RangeSliderPreference:processReleaseManifest UP-TO-DATE
+> Task :Submodules:RangeSliderPreference:mapReleaseSourceSetPaths UP-TO-DATE
+> Task :app:dataBindingGenBaseClassesRelease UP-TO-DATE
+> Task :Submodules:RangeSliderPreference:compileReleaseLibraryResources UP-TO-DATE
+> Task :app:extractProguardFiles UP-TO-DATE
+> Task :Submodules:RangeSliderPreference:processReleaseJavaRes NO-SOURCE
+> Task :app:mergeReleaseStartupProfile UP-TO-DATE
+> Task :app:generateReleaseAssets UP-TO-DATE
+> Task :Submodules:RangeSliderPreference:generateReleaseAssets UP-TO-DATE
+> Task :Submodules:RangeSliderPreference:mergeReleaseAssets UP-TO-DATE
+> Task :app:processReleaseMainManifest UP-TO-DATE
+> Task :app:processReleaseManifest UP-TO-DATE
+> Task :app:processReleaseManifestForPackage UP-TO-DATE
+> Task :app:generateReleaseRFile UP-TO-DATE
+> Task :app:mergeReleaseAssets UP-TO-DATE
+> Task :app:compressReleaseAssets UP-TO-DATE
+> Task :app:extractReleaseVersionControlInfo UP-TO-DATE
+> Task :Submodules:RangeSliderPreference:createFullJarRelease UP-TO-DATE
+> Task :Submodules:RangeSliderPreference:extractProguardFiles UP-TO-DATE
+> Task :Submodules:RangeSliderPreference:prepareLintJarForPublish UP-TO-DATE
+> Task :Submodules:RangeSliderPreference:checkReleaseAarMetadata UP-TO-DATE
+> Task :Submodules:RangeSliderPreference:stripReleaseDebugSymbols NO-SOURCE
+> Task :Submodules:RangeSliderPreference:copyReleaseJniLibsProjectAndLocalJars UP-TO-DATE
+> Task :Submodules:RangeSliderPreference:extractDeepLinksForAarRelease UP-TO-DATE
+> Task :Submodules:RangeSliderPreference:generateReleaseLintModel UP-TO-DATE
+> Task :Submodules:RangeSliderPreference:mergeReleaseConsumerProguardFiles UP-TO-DATE
+> Task :Submodules:RangeSliderPreference:extractReleaseAnnotations UP-TO-DATE
+> Task :Submodules:RangeSliderPreference:mergeReleaseJavaResource UP-TO-DATE
+> Task :Submodules:RangeSliderPreference:syncReleaseLibJars UP-TO-DATE
+> Task :Submodules:RangeSliderPreference:bundleReleaseLocalLintAar UP-TO-DATE
+> Task :Submodules:RangeSliderPreference:writeReleaseLintModelMetadata UP-TO-DATE
+> Task :Submodules:RangeSliderPreference:lintVitalAnalyzeRelease UP-TO-DATE
+> Task :Submodules:RangeSliderPreference:generateReleaseLintVitalModel UP-TO-DATE
+> Task :app:validateSigningRelease UP-TO-DATE
+> Task :app:writeReleaseAppMetadata UP-TO-DATE
+> Task :app:writeReleaseSigningConfigVersions UP-TO-DATE
+> Task :app:collectReleaseDependencies UP-TO-DATE
+> Task :app:sdkReleaseDependencyData UP-TO-DATE
+> Task :app:kspReleaseKotlin UP-TO-DATE
+> Task :app:processReleaseResources UP-TO-DATE
+> Task :app:compileReleaseKotlin UP-TO-DATE
+> Task :app:compileReleaseJavaWithJavac UP-TO-DATE
+> Task :app:hiltSyncRelease UP-TO-DATE
+> Task :app:processReleaseJavaRes UP-TO-DATE
+> Task :app:hiltAggregateDepsRelease UP-TO-DATE
+> Task :app:mergeReleaseJavaResource UP-TO-DATE
+> Task :app:generateReleaseLintVitalReportModel UP-TO-DATE
+> Task :app:lintVitalAnalyzeRelease UP-TO-DATE
+> Task :app:hiltJavaCompileRelease UP-TO-DATE
+> Task :app:lintVitalReportRelease UP-TO-DATE
+> Task :app:lintVitalRelease
+> Task :app:transformReleaseClassesWithAsm UP-TO-DATE
+> Task :app:mergeReleaseGeneratedProguardFiles UP-TO-DATE
+> Task :app:expandReleaseArtProfileWildcards UP-TO-DATE
+> Task :app:minifyReleaseWithR8
+> Task :app:convertShrunkResourcesToBinaryRelease
+> Task :app:optimizeReleaseResources
+> Task :app:l8DexDesugarLibRelease
+> Task :app:compileReleaseArtProfile
+> Task :app:packageRelease
+> Task :app:assembleRelease
+> Task :app:createReleaseApkListingFileRedirect
+
+BUILD SUCCESSFUL in 1m 53s
+103 actionable tasks: 10 executed, 93 up-to-date
+Configuration cache entry stored.
