@@ -10,8 +10,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-import sh.siava.rangesliderpreference.RangeSliderPreference;
-
 public class ExtendedSharedPreferences implements SharedPreferences {
 	public static final String IS_PREFS_INITIATED_KEY = "IsPrefsInitiated";
 	private final SharedPreferences prefs;
@@ -41,20 +39,6 @@ public class ExtendedSharedPreferences implements SharedPreferences {
 		mIsPrefsInitiated = prefs.getBoolean(IS_PREFS_INITIATED_KEY, false);
 
 		prefs.registerOnSharedPreferenceChangeListener(listener);
-	}
-	public int getSliderInt(String key, int defaultVal)
-	{
-		return RangeSliderPreference.getSingleIntValue(this, key, defaultVal);
-	}
-
-	public List<Float> getSliderValues(String key, float defaultValue)
-	{
-		return RangeSliderPreference.getValues(this, key, defaultValue);
-	}
-
-	public float getSliderFloat(String key, float defaultVal)
-	{
-		return RangeSliderPreference.getSingleFloatValue(this, key, defaultVal);
 	}
 
 	@Override

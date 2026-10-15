@@ -134,7 +134,7 @@ dependencies {
 	compileOnly(files("lib/api-82.jar"))
 	compileOnly(files("lib/api-82-sources.jar"))
 
-	implementation(project(":Submodules:RangeSliderPreference"))
+
 
 	implementation (libs.androidx.constraintlayout)
 	implementation (libs.androidx.navigation.fragment.ktx)
