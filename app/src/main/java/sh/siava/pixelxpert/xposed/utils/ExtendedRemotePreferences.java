@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+import sh.siava.rangesliderpreference.RangeSliderPreference;
 
 public class ExtendedRemotePreferences extends RemotePreferences {
 	public List<OnSharedPreferenceChangeListener> mOnSharedPreferenceChangeListeners = Collections.synchronizedList(new ArrayList<>());
@@ -44,6 +45,21 @@ public class ExtendedRemotePreferences extends RemotePreferences {
 		super.registerOnSharedPreferenceChangeListener(l);
 
 		mListenerRegistered = true;
+	}
+
+	public int getSliderInt(String key, int defaultVal)
+	{
+		return RangeSliderPreference.getSingleIntValue(this, key, defaultVal);
+	}
+
+	public float getSliderFloat(String key, float defaultVal)
+	{
+		return RangeSliderPreference.getSingleFloatValue(this, key, defaultVal);
+	}
+
+	public List<Float> getSliderValues(String key, float defaultValue)
+	{
+		return RangeSliderPreference.getValues(this, key, defaultValue);
 	}
 
 	@Override

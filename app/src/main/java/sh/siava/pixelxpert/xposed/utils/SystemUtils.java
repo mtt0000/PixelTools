@@ -786,7 +786,7 @@ public class SystemUtils {
 				int unMuteVolume = round(
 						(AudioManager().getStreamMaxVolume(STREAM_MUSIC)
 								- AudioManager().getStreamMinVolume(STREAM_MUSIC)
-						) * (float) 50 / 100f);
+						) * (float) Xprefs.getSliderInt("UnMuteVolumePCT", 50) / 100f);
 				mAudioManager.setStreamVolume(STREAM_MUSIC, unMuteVolume, 0);
 			} else {
 				mAudioManager.setStreamVolume(STREAM_MUSIC, 0, 0);

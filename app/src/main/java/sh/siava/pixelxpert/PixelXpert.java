@@ -32,6 +32,7 @@ import java.util.concurrent.TimeUnit;
 import io.github.libxposed.service.XposedService;
 import io.github.libxposed.service.XposedServiceHelper;
 import sh.siava.pixelxpert.utils.ExtendedSharedPreferences;
+import sh.siava.pixelxpert.utils.PreferenceXMLParser;
 
 
 public class PixelXpert extends Application {
@@ -116,6 +117,7 @@ public class PixelXpert extends Application {
 	private void initiatePref(int resID)
 	{
 		try {
+			PreferenceXMLParser.setDefaultsFromXml(this, resID, getDefaultPreferences());
 		}
 		catch (Throwable ignored){}
 	}
